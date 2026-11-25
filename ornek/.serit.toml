@@ -1,0 +1,36 @@
+# serit ayarı: depo köküne `.serit.toml` olarak koy (ya da aynı anahtarları pyproject.toml içinde
+# [tool.serit] altına yaz). Yazmadığın her anahtar varsayılanını alır; bilinmeyen anahtar hatadır.
+
+# Doğrudan commit ve elle merge'e kapalı dal. Buraya yalnız `serit kaydet` ve `serit birlestir` yazar.
+korunan_dal = "main"
+
+# Şerit dalı önekleri. Bu dallarda commit serbesttir; `serit birlestir` yalnız bunları kabul eder,
+# `serit durum` bunları listeler. Boş liste: her dal birleştirilebilir.
+serit_onekleri = ["serit/"]
+
+# Commit başlığı `tür(kapsam): özet`; tür bu listeden olmalı (küçük harf, rakam, tire).
+turler = ["ozellik", "duzelt", "belge", "test", "yeniden", "arac", "karar", "tasima"]
+
+# Bu türlerdeki commit'ler (ve birleştirmeler) hemen push edilir; diğerleri birikir.
+otomatik_push = []
+
+# Bu kadar commit push beklerse `serit kaydet` hatırlatır.
+push_hatirlat = 3
+
+# Başlık bu uzunluğu aşarsa uyarı (engel değil).
+baslik_uzun = 72
+
+# Commit kapısı: açıkken `serit kaydet`, verilen .py dosyalarının kendi klasöründe test_*.py varsa
+# o klasörlerde pytest koşar; düşerse commit yapılmaz. --test-yok "gerekçe" ile atlanır.
+test_kapisi = false
+# Boş liste: her .py dosyası. Örnek: ["src/", "betikler/"]
+test_onekleri = []
+
+# Push kapısı: push edilen commit'in ağacı geçici dizine açılır ve bu komut orada koşar.
+# "{python}" kancayı çalıştıran yorumlayıcıyla değiştirilir. Boş liste: yalnız sağlık denetimi.
+# Örnek: ["{python}", "-m", "pytest", "-q", "-p", "no:cacheprovider"]
+push_komutu = []
+# Komutu tetikleyen yol önekleri (düz metin öneki). Boş liste: her push'ta koşar. Yeni dal, yerelde
+# bulunmayan uzak commit ve diff hatası her zaman koşturur.
+push_yollari = []
+push_zaman_asimi = 600

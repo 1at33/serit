@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "serit"
+version = "0.1.0"
+description = "Birden çok ajan oturumunun aynı depoya yazdığı düzen için commit disiplini: korunan dal, şerit dalları, yalnız kendi dosyaların"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff==0.17.3"]
+
+[project.scripts]
+serit = "serit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+serit = ["kancalar/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

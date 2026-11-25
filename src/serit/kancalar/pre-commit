@@ -1,0 +1,9 @@
+#!/bin/sh
+# serit-kanca: pre-commit
+# `serit kur` yazar; elle değiştirme, bir sonraki `serit kur` üzerine yazar. Asıl iş Python'da (serit.kanca).
+# Yorumlayıcı sırası: SERIT_PYTHON, kurulumdaki yorumlayıcı, PATH'teki python3 / python.
+for py in "${SERIT_PYTHON:-}" '@PYTHON@' "$(command -v python3 2>/dev/null)" "$(command -v python 2>/dev/null)"; do
+    [ -n "$py" ] && [ -x "$py" ] && exec "$py" -P -m serit kanca pre-commit "$@"
+done
+echo "DURDU: serit kancası Python bulamadı; SERIT_PYTHON ayarla ya da 'serit kur' komutunu yeniden çalıştır." >&2
+exit 1
