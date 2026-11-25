@@ -24,7 +24,7 @@ def _ortak(p):
 def _mesaj_secenekleri(p):
     p.add_argument('-m', '--mesaj', action='append', required=True,
                    help='"tür(kapsam): özet"; git gibi tekrarlanabilir (paragraf)')
-    p.add_argument('--oturum', help='oturum kimliği, ör. ajan/6f10190b; commit gövdesine "Oturum:" satırı')
+    p.add_argument('--oturum', help='oturum kimliği, ör. ajan/0a1b2c3d; commit gövdesine "Oturum:" satırı')
     p.add_argument('--yazar', help='Co-Authored-By satırı, ör. "Ajan <ajan@ornek.invalid>"')
     grup = p.add_mutually_exclusive_group()
     grup.add_argument('--push', dest='push', action='store_true', default=None, help='türden bağımsız push et')

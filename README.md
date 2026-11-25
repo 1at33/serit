@@ -78,10 +78,10 @@ Hepsi `--repo <yol>` alır (varsayılan: bulunulan dizin). Çıkış kodu 0 tama
 git switch -c serit/arama-duzeltmesi
 # ... iş, şeritte serbest commit'ler ...
 git switch main
-serit birlestir serit/arama-duzeltmesi -m "duzelt(arama): boş sorguda çökme" --oturum ajan/6f10190b
+serit birlestir serit/arama-duzeltmesi -m "duzelt(arama): boş sorguda çökme" --oturum ajan/0a1b2c3d
 
 # ya da doğrudan main'e küçük, tek parça bir iş:
-serit kaydet -m "belge(readme): kurulum adımı" --oturum ajan/6f10190b -- README.md
+serit kaydet -m "belge(readme): kurulum adımı" --oturum ajan/0a1b2c3d -- README.md
 ```
 
 ## Ayar
